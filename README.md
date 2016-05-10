@@ -59,7 +59,7 @@ document.getElementById('hello').innerHTML="just for test";
 ```
 打个包试试看
 `webpack main.js out.js`
-打开index.html看看 是不是OK了
+打开index.html看看 是不是OK了?
 ##Webpack.config and usage with gulp
 `webpack main.js out.js`的方式明显太low,我们需要一个配置文件来统筹。Webpack在执行的时候，默认会搜索当前目录的webpack.config.js文件，所以我们要建一个webpack.config.js文件
 ```js
@@ -72,7 +72,8 @@ module.exports = {
     }
 }
 ```
-现在试试执行`webpack`，是不是效果和之前一样。
+现在试试执行`webpack`，是不是效果和之前一样。  
+
 接下来要做的就是将Webpack和之前我们建的gulp结合起来，webpack官方已经都有具体的方案了，看这里[http://webpack.github.io/docs/usage-with-gulp.html](http://webpack.github.io/docs/usage-with-gulp.html)，将之前的gulpfile.js文件修改成以下：
 ```js
 var webpack = require("webpack");
@@ -89,4 +90,19 @@ gulp.task("webpack", function(callback) {
 现在执行一下`gulp`,是不是还是一样的效果。
 ##Vue
 还是先来官网瞧瞧[http://cn.vuejs.org/](http://cn.vuejs.org/)
+
 安装`npm install vue -save`
+
+在入口的JS中加入
+```javascript
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+})
+```
+在index.html中加入
+```html
+{{ message }}
+```
